@@ -7,9 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - name: Branch name
+      run: echo running on branch ${GITHUB_REF##*/}
     - uses: yanamura/git-flow-merge-action@v1.1.0
       with: 
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${GITHUB_REF#refs/heads/}
+        branch: ${GITHUB_REF##*/}
     
     
