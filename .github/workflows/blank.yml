@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - release/*
-    types: [created]
+    types: [updated]
 jobs:
   automerge:
     runs-on: ubuntu-latest
