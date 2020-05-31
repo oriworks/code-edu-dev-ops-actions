@@ -1,0 +1,20 @@
+on:
+  push:
+    branches:
+      - release/*
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Branch name
+      run: |
+        echo running on branch ${{ github.ref }}
+        echo running on branch ${{ github.head_ref }}
+        echo running on branch ${{ github.base_ref }}
+    - uses: yanamura/git-flow-merge-action@v1.1.0
+      with: 
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
+    
+    
